@@ -3,10 +3,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rosynira Centeio</title>
+    <title>Rosynira Pires</title>
     <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+    <script src="https://kit.fontawesome.com/61743bf638.js" crossorigin="anonymous"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init({
+            publicKey: "S0P59Bdy6vp2DdLYV",
+        });
+    })();
+    </script>
 </head>
 <body>
+
+    <section id="landing-page" onmousemove="moveBackground(event)">
+        <nav>
+            <figure>
+                <img id="personal-logo" src="./assets/logo.png" alt="Logo">
+            </figure>
+            <ul class="nav__link--list">
+                <li class="nav__link" onclick="toggleModal()">
+                    <a href="#" class="
+                    nav__link--anchor
+                    link__hover-effect
+                    link__hover-effect--black">About</a>
+                </li>
+                <li class="nav__link">
+                    <a href="#projects" class="
+                    nav__link--anchor
+                    link__hover-effect
+                    link__hover-effect--black">Projects</a>
+                </li>
+                <li class="nav__link" onclick="toggleModal()">
+                    <a href="#" class="
+                    nav__link--anchor
+                    link__hover-effect
+                    link__hover-effect--black">Contact</a>
+                </li>
+                <li class="nav__link click" onclick="toggleContrast()">
+                   <a href="#" class="
+                    nav__link--anchor
+                    link__hover-effect
+                    link__hover-effect--black">
+                    <i class="fa-solid fa-circle-half-stroke"></i></a>
+                </li>
+            </ul>
+        </nav>
+        <header class="header">
+            <div class="header__content">
+                <h1 class="title">Hey</h1>
+                <h1 class="title purple">I'm Rosynira Pires</h1>
+                <p class="header__para">
+                    A passionate <span class="purple">Frontend Software Engineer</span> focused on crafting engaging and user-friendly digital experiences.
+                    <br>Here's a bit <span class="purple click" onclick="toggleModal()">about me.</span>
+                </p> 
+                <div class="social__list">
+                <a href="https://www.linkedin.com/in/rosynira-centeio-a215179b/" target="_blank" class="social__link click">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                 <a href="https://github.com/RosyCenteio" target="_blank" class="social__link click">
+                    <i class="fa-brands fa-github"></i> 
+                </a>
+                 <a href="./assets/David Bragg Resume.pdf" download target="_blank" class="social__link click">
+                    <i class="fa-solid fa-file-pdf"></i>
+                </a> 
+            </div>
+            </div>
+        </header>
+        <a href="#">
+            <button class="mail__btn click" onclick="toggleModal()">
+                <i class="fa-solid fa-envelope"></i>
+            </button>
+        </a>
+        <a href="#projects" class="scroll">
+            <div class="scroll__icon click"></div>
+        </a>
+        <div class="modal">
+            <div class="modal__half modal__about"> 
+                <h3 class="modal__title modal__title--about">Here's a bit About me</h3>
+                <h4 class="modal__sub-title modal__subtitle--about">Full Stack Software Engineer</h4>
+                <p class="modal__para modal__para--about">
+                    I'm <b class="purple">Rosynira Pires</b>, a dedicated <b class="purple"> Full Stack Software Engineer</b> with a passion for creating dynamic and user-friendly web applications.
+                    <br>With a strong foundation in both <b class="purple">front-end and back-end </b> technologies, 
+                        I thrive on transforming complex problems into elegant solutions.
+                </p>
+                <div class="modal__languages">
+                    <figure class="modal__language">
+                        <img src="./assets/html_logo.png" alt="HTML5" class="language__img">
+                        <span class="language__name">HTML5</span>
+                    </figure>
+                    <figure class="modal__language">
+                        <img src="./assets/css_logo.png" alt="CSS" class="language__img">
+                        <span class="language__name">CSS</span>
+                    </figure>
+                    <figure class="modal__language">
+                        <img src="./assets/javascript_logo.png" alt="JavaScript" class="language__img">
+                        <span class="language__name">JavaScript</span>   
+                    </figure>
+                    <figure class="modal__language">
+                        <img src="./assets/react_logo.png" alt="React" class="language__img">
+                        <span class="language__name">React</span>
+  
+                    </figure>
+                    <figure class="modal__language">
+                        <img src="./assets/sql_logo.png" alt="SQL" class="language__img">
+                        <span class="language__name">SQL</span>
+                    </figure>
+                    <figure class="modal__language">
+                        <img src="./assets/dotnet_logo.png" alt=".net" class="language__img">
+                        <span class="language__name">dotNet</span>
+                    </figure>
+                    
+                </div>
+            </div>
+            <div class="modal__half modal__contact">
+                <h3 class="modal__title modal__title--contact">
+                    Let's have a chat!
+                </h3>
+                <h4 class="modal__sub-title modal__subtitle--contact">
+                    I'm currently open to new opportunities.
+                </h4>
+                <form id="contact__form" onsubmit="contact(event)">
+                    <i class="fa-solid fa-times modal__exit click" onclick="toggleModal()"></i>
+                    <div class="form__item">
+                        <label  class="form__item--label">Name</label>
+                        <input type="text" id="name" name="user_name" class="input" required></input>
+                    </div>
+
+                    <div class="form__item">
+                        <label  class="form__item--label">Email</label>
+                        <input type="email" id="email" class="input" name="user_email" required></input>
+                    </div>
+                    <div class="form__item">
+                        <label  class="form__item--label">Message</label>
+                        <textarea id="message" class="textarea" name="message" required></textarea>
+                    </div>
+
+                    <button id="contact__submit" class="form__submit">Send Message</button>
+                </form>
+                <div class="modal__overlay modal__overlay--loading">
+                    <i class="fa-solid fa-spinner"></i>
+                </div>
+                <div class="modal__overlay modal__overlay--success">
+                    Thank you for your message! looking forward to connecting with you soon.
+                </div>
+            </div>
+        </div>
+
+        <img src="./assets/semi circle.svg" class="shape shape--0">
+        <img src="./assets/circle.svg" class="shape shape--1">
+        <img src="./assets/squiggly.svg" class="shape shape--2">
+        <img src="./assets/circle.svg" class="shape shape--3">
+        <img src="./assets/triangle.svg" class="shape shape--4">
+        <img src="./assets/circle.svg" class="shape shape--5">
+        <img src="./assets/squiggly.svg" class="shape shape--6">
+        <img src="./assets/circle.svg" class="shape shape--7">
+        <img src="./assets/semi circle.svg" class="shape shape--8">
+    </section>
     
+    <section id="projects">
+        <div class="container">
+            <div class="row">
+                <h1 class="section__title">Here are some of my 
+                    <span class="purple">projects</span></h1>
+                <ul class="project__list">
+                    <li class="project">
+                        <div class="project__wrapper">
+                            <img src="./assets/blinker mockup.png" class="project__img">
+                            <div class="project__wrapper--bg"></div>
+                            <div class="project__description">
+                                <h3 class="project__description--title">Library Project</h3>
+                                <h4 class="project__description--sub-title">HTML, CSS, JavaScript</h4>
+                                <p class="project__description--para">
+                                    A simple library application that allows users to add, view, and manage their book collection. Built with vanilla JavaScript, HTML, and CSS.
+                                </p>
+                                <div class="project__description--links">    
+                                    <a href="https://github.com/RosyCenteio/E-Commerse" 
+                                    target="_blank" class="project__description--link click">
+                                        <i class="fa-brands fa-github"></i> 
+                                    </a>
+                                    <a href="https://github.com/RosyCenteio/E-Commerse" 
+                                    target="_blank" class="project__description--link click">
+                                        <i class="fa-solid fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </section>
 </body>
+
+<footer>
+    <div class="container">
+        <div class="row footer__row">
+            <figure class="footer__img--wrapper">
+                <img class="footer__logo--img" src="./assets/logo.png" alt="Logo">
+            </figure>
+            <div class="footer__social--list">
+                <a href="https://github.com/RosyCenteio" target="_blank" class=
+                    "footer__social--link
+                    link__hover-effect
+                    link__hover-effect--white 
+                    click">
+                    Github
+                </a>
+                <a href="https://www.linkedin.com/in/rosynira-centeio-a215179b/" target="_blank" class="
+                    footer__social--link
+                    link__hover-effect
+                    link__hover-effect--white">
+                    LinkedIn
+                </a>
+                <a href="#" onclick="toggleModal()" class="
+                    footer__social--link
+                    link__hover-effect
+                    link__hover-effect--white">
+                    Contact
+                </a>
+                <a href="#" class="
+                    footer__social--link
+                    link__hover-effect
+                    link__hover-effect--white" download>
+                    Resume
+                </a>
+            </div>
+            <p class="footer__copyright">
+                &copy; 2026 Rosynira Pires. All rights reserved.
+            </p>
+        </div>
+    </div>
+</footer>
 </html>
